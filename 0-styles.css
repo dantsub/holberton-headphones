@@ -390,6 +390,7 @@ label {
   background-image: url(images/headphones_hero_1.jpg);
   background-repeat: no-repeat;
   background-position-x: 35%;
+  background-size: cover;
   padding-bottom: 1.5rem;
 }
 .hero p,
