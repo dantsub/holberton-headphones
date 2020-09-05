@@ -6,7 +6,7 @@ In this project, I will implement from scratch, without any library, a web page.
 
 Here the final result:
 
-![alt](https://link) ![alt](https://link) ![alt](https://link)
+![Web page](images/Web_page.jpg)
 
 ***This webpage has been designed by Nicolas Philippot, UI/UX designer.***
 
@@ -38,11 +38,11 @@ For this first task: **create the header/hero piece**
 
 **Desktop:**
 
-![alt](https://link)
+![Desktop header](images/Desktop_header.gif)
 
 **Mobile:**
 
-![alt](https://link)
+![Mobile header](images/Mobile_header.gif)
 
 ### [2. "What we do..." section](1-styles.css)
 
@@ -72,11 +72,11 @@ When you are done, here the result:
 
 **Desktop:**
 
-![alt](https://link)
+![Desktop footer](images/Desktop_footer.gif)
 
 **Mobile:**
 
-![alt](https://link)
+![Mobile footer](images/Mobile_footer.gif)
 
 ## Author
 
