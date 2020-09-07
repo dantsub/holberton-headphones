@@ -652,7 +652,8 @@ label {
 /* Contact us - Form - Animation
    ========================================= */
 .form-input {
-  &:focus {
+  &:focus,
+  &:not(:placeholder-shown) {
     outline-style: none;
     border-bottom-color: var(--color-secondary);
     + .form-label {
