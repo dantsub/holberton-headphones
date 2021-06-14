@@ -1,767 +1,481 @@
-// ============================
-//       Global Variables
-// ============================
-
-// Colors
-$primary: #ff6565;
-$secondary: #071629;
-$text-white: #ffffff;
-$text-secondary: #{$secondary};
-
-// Fonts
-$main-font: "Source Sans Pro";
-$logo-font: "Spin-Cycle-OT";
-
-// Fonts weight
-$regular: 400;
-$semi-bold: 600;
-$bold: 700;
-
-// Auxiliar functions
-@function px_to_rem($px) {
-  @return $px / 16 * 1rem;
+// Variables sass
+$white: hsl(0, 0%, 100%);
+$primary: hsl(0, 100%, 70%);
+$secondary: hsl(214, 71%, 9%);
+$gray: hsl(0, 0%, 59%);
+$small-gradiant-radial: radial-gradient(82.91% 82.91% at 34.95% -2.99%, rgba(41, 48, 61, 0.0001) 0%, #071629 100%);
+$large-gradiant-radial: radial-gradient(100% 100% at 50% 0%, rgba(41, 48, 61, 0.0001) 0%, #071629 100%);
+$base-font: "'source sans pro'", sans-serif;
+$headline1: bold 32px/40.22px $base-font;
+$headline2: bold 32px/37.5px $base-font;
+$headline3: 600 18px/26px $base-font;
+$headline4: bold 16px/20.11px $base-font;
+$body1: 16px/26px $base-font;
+$body2: 14px/26px $base-font;
+$menu: bold 12px/15px $base-font;
+$button: bold 14px/17.6px $base-font;
+$form: 600 14px/16.41px $base-font;
+// Mixins
+@mixin grid-container($gap, $size) {
+  display: grid;
+  column-gap: $gap;
+  grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
 }
-
+// Guide Style
+:root {
+  --base-font: #{$base-font};
+  --headline1: #{$headline1};
+  --headline2: #{$headline2};
+  --headline3: #{$headline3};
+  --headline4: #{$headline4};
+  --body1: #{$body1};
+  --body2: #{$body2};
+  --button: #{$button};
+  --form-font: #{$form};
+  --menu-font: #{$menu};
+  --white: #{$white};
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --gray: #{$gray};
+  --image-small-gradiant: #{$small-gradiant-radial};
+  --image-large-gradiant: #{$large-gradiant-radial};
+}
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font: var(--body1);
+  color: var(--secondary);
+  margin: 0;
+}
 @font-face {
-  font-family: #{$logo-font};
+  font-family: 'Spin-Cycle-OT';
   src: url(fonts/spincycle_ot.otf);
 }
 /* Holberton Icons
    =========================================*/
 @font-face {
-  font-family: "holberton_school-icon";
-  src: url("fonts/holberton_school-icon.eot?sq4eq4");
-  src: url("fonts/holberton_school-icon.eot?sq4eq4#iefix")
-      format("embedded-opentype"),
-    url("fonts/holberton_school-icon.ttf?sq4eq4") format("truetype"),
-    url("fonts/holberton_school-icon.woff?sq4eq4") format("woff"),
-    url("fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon")
-      format("svg");
+  font-family: 'holberton_school-icon';
+  src: url('fonts/holberton_school-icon.eot?sq4eq4');
+  src: url('fonts/holberton_school-icon.eot?sq4eq4#iefix')
+      format('embedded-opentype'),
+    url('fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+    url('fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+    url('fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon')
+      format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
-
-[class^="holberton_school-icon-"],
-[class*=" holberton_school-icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "holberton_school-icon" !important;
-  speak-as: none;
+[class^='holberton_school-icon-'],
+[class*=' holberton_school-icon-'] {
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'holberton_school-icon' !important;
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.holberton_school-icon-ic_facebook:before {
-  content: "\e908";
+.icon {
+  font-size: 7rem;
+  color: var(--primary);
 }
-.holberton_school-icon-ic_hearing:before {
-  content: "\e909";
-}
-.holberton_school-icon-ic_instagram:before {
-  content: "\e90a";
-}
-.holberton_school-icon-ic_music:before {
-  content: "\e90d";
-}
-.holberton_school-icon-ic_sound:before {
-  content: "\e90e";
-}
-.holberton_school-icon-ic_twitter:before {
-  content: "\e90f";
-}
-.holberton_school-icon-ic_video:before {
-  content: "\e910";
-}
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-body {
-  margin: 0;
-}
-/**
- * Render the `main` element consistently in IE.
- */
-main {
-  display: block;
-}
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
-a {
-  background-color: transparent;
-}
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted;
-}
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-b,
-strong {
-  font-weight: bolder;
-}
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-/**
- * Add the correct font size in all browsers.
- */
-small {
-  font-size: 80%;
-}
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-img {
-  border-style: none;
-}
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-button,
-input {
-  overflow: visible;
-}
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select {
-  text-transform: none;
-}
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-  -webkit-appearance: button;
-}
-/**
- * Remove the inner border and padding in Firefox.
- */
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-/**
- * Restore the focus styles unset by the previous rule.
- */
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-/**
- * Correct the padding in Firefox.
- */
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-progress {
-  vertical-align: baseline;
-}
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-textarea {
-  overflow: auto;
-}
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-details {
-  display: block;
-}
-/*
- * Add the correct display in all browsers.
- */
-summary {
-  display: list-item;
-}
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-template {
-  display: none;
-}
-/**
- * Add the correct display in IE 10.
- */
-[hidden] {
-  display: none;
-}
-/*# sourceMappingURL=normalize.min.css.map */
-
-/* Variables
-   ========================================= */
-:root {
-  --color-primary: #{$primary};
-  --color-secondary: #{$secondary};
-  --color-white: #{$text-white};
-  --text-color: var(--color-secondary);
-  --font-family-base: "#{$main-font}", sans-serif;
-  --font-family-logo: "#{$logo-font}", sans-serif;
-  --font-weight-regular: #{$regular};
-  --font-weight-semi-bold: #{$semi-bold};
-  --font-weight-bold: #{$bold};
-}
-/* General styles
-   ========================================= */
-html {
-  scroll-behavior: smooth;
-}
-body {
-  font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
-}
-ul,
-ol {
-  list-style: none;
-}
-h1,
-p {
-  text-align: center;
-}
-p {
-  line-height: px_to_rem(26);
-}
-a {
-  &,
-  &:link {
-    color: var(--color-white);
+.holberton_school-icon-ic {
+  &_facebook:before {
+    content: '\e908';
   }
-  text-decoration: none;
+  &_hearing:before {
+    content: '\e909';
+  }
+  &_instagram:before {
+    content: '\e90a';
+  }
+  &_music:before {
+    content: '\e90d';
+  }
+  &_sound:before {
+    content: '\e90e';
+  }
+  &_twitter:before {
+    content: '\e90f';
+  }
+  
+  &_video:before {
+    content: '\e910';
+  }
 }
-label {
-  display: inline-block;
-}
-.container {
+/* Wrapper */
+.wrapper {
+  max-inline-size: 1000px;
+  inline-size: 335px;
   margin: 0 auto;
-  max-width: 1000px;
-  width: 89%;
 }
+/* menu component 
+   =========================*/
+.menu {
+  min-block-size: 92px;
+  margin-block-end: 266px;
+  &__list {
+    display: none;
+    list-style: none;
+    inline-size: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  &__item  {
+    inline-size: 73px;
+    margin-inline: auto;
+    margin-block: 2rem;
+    a {
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      font: var(--menu-font);
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+  &__container {
+    padding-block-start: 29px;
+    &:first-child {
+      text-align-last: start;
+    }
+    input {
+      visibility: hidden;
+      position: absolute;
+      &:checked {
+        + .menu__icon {
+          .menu__bar {
+            background-color: unset;
+            &::after {
+              transform: rotate(-45deg);
+              inset-block-start: 0;
+              inline-size: 20px;
+            }
+            &::before {
+              transform: rotate(45deg);
+              inset-block-end: 0;
+            }
+          }
+        }
+        ~ .menu__list {
+          display: block;
+        }
+      }
+    }
+  }
+  &__icon {
+    inline-size: 90px;
+    block-size: 32px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: start;
+  }
+  &__bar {
+    inline-size: 13px;
+    position: relative;
+    &, &::after, &::before {
+      background-color: var(--white);
+      block-size: 2px;
+      display: inline-block;
+      border-radius: 2px;
+    }
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      transform: rotate(0);
+      transition: transform 0.2s ease-out;
+      inset-inline-start: 0;
+    }
+    &::after {
+      inline-size: 18px;
+      inset-block-start: 4px;
+    }
+    &::before {
+      inline-size: 20px;
+      inset-block-end: 4px;
+    }
+  }
+}
+/* hero component
+   =========================*/
+.hero {
+  background-image: var(--image-small-gradiant), url('./images/headphones_hero_1.jpg');
+  background-size: 1611.54px 1074px;
+  background-position: -425.27px -99px;
+  background-repeat: no-repeat;
+  max-block-size: 870px;
+  min-block-size: 800px;
+  padding-block-end: 106px;
+  color: var(--white);
+  text-align: center;
+  &__title {
+    font: var(--headline1);
+    margin-block: 0;
+  }
+  &__tagline {
+    font: var(--headline4);
+    inline-size: 279px;
+    margin-inline: auto;
+    margin-block-start: 5px;
+  }
+  &__description {
+    margin-block-start: 65px;
+  }
+}
+/* button component
+   =========================*/
 .btn {
   border: none;
-  border-radius: px_to_rem(22);
-  display: block;
-  font-weight: var(--font-weight-bold);
-  height: px_to_rem(44);
-  margin: 0 auto;
-  width: px_to_rem(162);
-  &-primary {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-  }
-  &-filter {
-    filter: drop-shadow(0px 2px 20px rgba(0, 0, 0, 0.5));
-  }
-  &:hover,
-  &:active {
+  border-radius: 22px;
+  font: var(--button);
+  color: var(--white);
+  block-size: 44px;
+  inline-size: 162px;
+  text-transform: uppercase;
+  &:hover, &:active {
     opacity: 0.9;
   }
-}
-.title {
-  font-size: px_to_rem(32);
-}
-/* Hero section
-   ========================================= */
-.hero {
-  background-image: url(images/headphones_hero_1.jpg);
-  background-repeat: no-repeat;
-  background-position-x: 35%;
-  background-size: cover;
-  p,
-  h1 {
-    color: var(--color-white);
+  &--primary {
+    background-color: var(--primary);
   }
-  p:nth-of-type(1) {
-    font-weight: var(--font-weight-bold);
-  }
-  p:nth-of-type(2) {
-    margin-top: px_to_rem(60);
-  }
-  padding-bottom: px_to_rem(24);
-}
-/* Hero section - Header
-   ========================================= */
-.header {
-  width: 100%;
-}
-.logo {
-  align-items: center;
-  display: flex;
-  width: px_to_rem(247);
-}
-.logo-img {
-  content: url(images/favicon.png);
-}
-.logo-title {
-  margin-left: px_to_rem(14);
-  padding-top: .4rem;
-  a {
-    font-family: var(--font-family-logo);
-    font-size: px_to_rem(18);
-    font-weight: var(--font-weight-regular);
+  &--shadow {
+    filter: drop-shadow(0px 2px 20px rgba(0, 0, 0, 0.5));
   }
 }
-/* Hero section - Header - Menu
-   ========================================= */
-.menu {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  padding: px_to_rem(29) 0;
-  @extend .header;
-}
-.menu-open {
-  display: none;
-}
-.menu-open-button {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: px_to_rem(14);
-  justify-content: space-between;
-  width: px_to_rem(20);
-}
-.menu-line {
-  background-color: var(--color-white);
-  border-radius: 2px;
-  height: 2px;
-}
-.line-1 {
-  width: px_to_rem(20);
-}
-.line-2 {
-  visibility: visible;
-  width: px_to_rem(13);
-}
-.line-3 {
-  width: px_to_rem(18);
-}
-.line-1,
-.line-3 {
-  transform: rotate(0);
-  transition: transform 0.2s ease-out;
-}
-.menu-list {
-  padding: 0;
-  text-align: center;
-  visibility: hidden;
-  width: 100%;
-}
-.menu-item {
-  font-weight: var(--font-weight-semi-bold);
-}
-.menu-link {
-  &:hover,
-  &:active {
-    color: var(--color-primary);
+
+/* Services (what we do)
+   =========================*/
+.service {
+  margin-block-end: 96px;
+  max-inline-size: 207px;
+  margin-inline: auto;
+  &__title {
+    font: var(--headline3);
   }
-}
-/* Hero section - Header - Animation of menu
-   =========================================*/
-.menu-open:checked {
-  & + .menu-open-button {
-    .line-1 {
-      transform: rotate(45deg);
-    }
-    .line-2 {
-      visibility: hidden;
-    }
-    .line-3 {
-      transform: rotate(-44deg);
-      width: px_to_rem(20);
-    }
-    .line-1,
-    .line-3 {
-      transform-origin: 1px;
-    }
+  &__description {
+    font: var(--body2);
   }
-  & ~ .menu-list {
-    .menu-item {
-      padding: 1rem;
-    }
-    visibility: visible;
-  }
-}
-/* What we do section
-   ========================================= */
-.what-we-do {
-  color: var(--color-secondary);
-  text-align: center;
-  & .title {
-    padding-top: 5rem;
-  }
-}
-.features {
-  align-content: space-between;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 5rem 0.5rem 4rem;
-}
-.feature-item {
-  margin: 0 auto;
-  width: px_to_rem(207);
-  &:hover {
+  &:hover > em {
     transform: scale(1.3);
   }
-}
-.icon {
-  color: var(--color-primary);
-  font-size: 7rem;
-}
-/* Our results section
-  ========================================== */
-.our-results {
-  background-image: url(images/headphones_hero_2.jpg);
-  background-position: center 0;
-  background-repeat: no-repeat;
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  text-align: center;
-  & .title {
-    padding-top: 12rem;
-  }
-  .features .feature-item {
-    background-image: url(images/pentagone.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    height: 11.875rem;
-    justify-content: center;
-    padding-bottom: 2rem;
-    width: px_to_rem(190);
-  }
-  .feature-item:hover {
-    transform: rotate3d(1, 30, 1, 45deg);
-  }
-}
-.percent {
-  font-size: px_to_rem(46);
-  font-weight: var(--font-weight-bold);
-  font-style: unset;
-  margin-top: 3rem;
-}
-/* Contact us section
-   ========================================= */
-.contact-us {
-  color: var(--color-secondary);
-}
-.container-contact {
-  margin: px_to_rem(120) auto;
-  width: 90%;
-  .title {
+  &s {
+    min-block-size: 694px;
+    max-block-size: 1638px;
+    max-inline-size: 100%;
     text-align: center;
-  }
-}
-/* Contact us - Form
-   ========================================= */
-.form {
-  display: flex;
-  flex-direction: column;
-  &-label {
-    font-weight: var(--font-weight-semi-bold);
-    font-size: px_to_rem(20);
-    transform: translate(0, -55px) scale(1);
-    transition: transform .5s ease-in-out;
-  }
-  &-input {
-    border: none;
-    border-bottom: 1px solid #ACACAC;
-    margin-bottom: 1.5rem;
-  }
-  .btn {
-    margin-top: 1rem;
-  }
-  margin-top: 4rem;
-}
-/* Contact us - Form - Animation
-   ========================================= */
-.form-input {
-  &:focus,
-  &:not(:placeholder-shown) {
-    outline-style: none;
-    border-bottom-color: var(--color-secondary);
-    + .form-label {
-      transform: translate(-32px, -65px) scale(0.8);
+    &__container {
+      margin-block: 110px;
+    }
+    &__title {
+    font: var(--headline2);
+    margin-block-start: 110px;
+    margin-block-end: 40px;
+    }
+    &__description {
+      max-inline-size: 637px;
+      margin-inline: auto;
     }
   }
 }
-/* Footer section
-   ========================================= */
-.footer {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  height: px_to_rem(249);
-  width: 100%;
-  .container {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+/* Results components
+   =========================*/
+.result {
+  block-size: 190px;
+  inline-size: 190px;
+  margin-block-start: 42px;
+  margin-inline: auto;
+  &__pentagon {
+    $padding_pentagon: 70px;
+    $width_pentagon: 180px;
+    background-color: var(--primary);
+    block-size: $width_pentagon - $padding_pentagon;
+    inline-size: 100%;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    padding-block-start: $padding_pentagon;
+    em {
+      font-size: 2.875rem;
+      font-weight: 600;
+      font-style: unset;
+    }
+    &:hover {
+      transform: rotate3d(1, 30, 1, 45deg);
+    }
   }
-  .logo {
+  &s {
+    background-color: var(--secondary);
+    background-image: url('./images/headphones_hero_2.jpg');
+    background-repeat: no-repeat;
+    background-position: center -13.35%;
+    max-inline-size: 100%;
+    min-block-size: 650px;
     text-align: center;
-    width: 100%;
-  }
-  .logo-img {
-    content: url(images/logo_headphones.png);
-    margin: 0 auto;
-    width: px_to_rem(162);
+    color: var(--white);
+    padding-block-end: 69px;
+    padding-block-start: 125px;
+    &__title {
+      font: var(--headline2);
+      margin-block-end: 46px;
+    }
+    &__description {
+      max-inline-size: 637px;
+      margin-inline-end: 77px;
+      margin-inline: auto;
+    }
   }
 }
-.social-icon {
+/* contact form
+=========================*/
+.contact {
+  $padding-start:110px;
+  $padding-end:130px;
+  $height: 613px - $padding-end - $padding-start;
+  block-size: $height;
+  padding-block-start: $padding-start;
+  padding-block-end: $padding-end;
+  &__title {
+    font: var(--headline2);
+  }
+  &__form {
+    text-align: center;
+    block-size: 373px;
+    inline-size: 335px;
+    margin-inline: auto;
+  }
+  &__label {
+    position: relative;
+    span {
+      display: block;
+      font: var(--form-font);
+      text-align: start;
+      transform: translateY(-72px) scale(1);
+      transition: transform 0.2s ease-out;
+    }
+    input {
+      border: none;
+      background-color: unset;
+      border-bottom: 1px solid var(--gray);
+      inline-size: 100%;
+      margin-block-end: 45px;
+      &:focus + span{
+        transform: translate(-32px, -80px) scale(.8);
+      }
+    }
+  }
+}
+/* Footer
+=========================*/
+.footer {
+  $padding-start: 48px;
+  $padding-end: 34px;
+  $height: 249px - $padding-start - $padding-end;
+  block-size: $height;
+  background-color: var(--secondary);
+  padding-block-start: $padding-start;
+  padding-block-end: $padding-end;
+  text-align: center;
+}
+.social {
+  inline-size: 130px;
+  block-size: 30px;
+  margin-inline: auto;
+  margin-block: 45px;
   display: flex;
   justify-content: space-between;
-  width: px_to_rem(130);
-  .icon {
-    color: var(--color-white);
-    font-size: px_to_rem(30);
+  &__icon {
+    color: var(--white);
+    font-size: 1.875rem;
   }
 }
 .copyright {
-  opacity: 0.35;
+  color: var(--white);
+  opacity: 0.3;
 }
 /* Media Queries
-   ========================================= */
-@media screen and (min-width: 767px) {
-  .hero {
-    background-position: center 0;
-    h1 {
-      padding-top: 15rem;
-    }
+=========================*/
+@media screen and (min-width: 768px) {
+  .wrapper {
+    inline-size: 633px;
   }
   .menu {
-    flex-wrap: nowrap;
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block-start: 29px;
+    }
+    &__list {
+      display: inline-flex;
+      justify-content: space-between;
+      inline-size: 255px;
+    }
+    &__icon {
+      display: none;
+    }
   }
-  .menu-open-button {
-    display: none;
+  .hero {
+    background-image: url('./images/headphones_hero_1.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 1400px 933px;
+    &__tagline {
+      margin-block-end: 40px;
+      inline-size: 100%;
+    }
+    &__description {
+      inline-size: 637px;
+      margin-inline: auto;
+    }
   }
-  .menu-list {
-    display: inline-flex;
-    justify-content: space-between;
-    visibility: visible;
-    width: 255px;
+  .services {
+    &__container {
+      @include grid-container(29px, 207px);
+    }
   }
-  .menu-item {
-    display: inline-block;
-  }
-  .logo {
-    flex-grow: 1;
-    width: px_to_rem(162);
-  }
-  .features {
-    height: px_to_rem(469);
-    width: px_to_rem(472);
-  }
-  .feature-item {
-    margin: 0;
-  }
-  .container-contact {
-    width: px_to_rem(335);
+  .results {
+    background-color: unset;
+    background-size: cover;
+    padding-block-start: 140px;
+    padding-block-end: 53px;
+    &__container {
+      @include grid-container(36px, 190px)
+    }
   }
   .footer {
-    .container {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .logo {
-      align-self: flex-end;
-      width: px_to_rem(162);
-    }
-    .logo-img {
-      margin: 0;
+    $padding-start: 110px;
+    $padding-end: 35px;
+    $height: 249px - $padding-start - $padding-end;
+    block-size: $height;
+    padding-block-start: $padding-start;
+    padding-block-end: $padding-end;
+    &__container {
+      inline-size: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block-end: 60px;
     }
   }
-  .social-icon {
-    align-self: flex-end;
-  }
-  .copyright {
-    text-align: center;
-    width: 100%;
+  .social {
+    margin: 0;
+    padding: 0;
   }
 }
-@media screen and (min-width: 992px) {
-  .features {
-    height: auto;
-    width: 100%;
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    inline-size: 1000px;
   }
-  .our-results {
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center 0;
     background-size: cover;
+    inline-size: 100%;
   }
 }
