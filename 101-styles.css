@@ -1,5 +1,36 @@
+@charset "UTF-8";
+:root {
+  --base-font: 'source sans pro', sans-serif;
+  --headline1: bold 32px/40.22px 'source sans pro', sans-serif;
+  --headline2: bold 32px/37.5px 'source sans pro', sans-serif;
+  --headline3: 600 18px/26px 'source sans pro', sans-serif;
+  --headline4: bold 16px/20.11px 'source sans pro', sans-serif;
+  --body1: 16px/26px 'source sans pro', sans-serif;
+  --body2: 14px/26px 'source sans pro', sans-serif;
+  --button: bold 14px/17.6px 'source sans pro', sans-serif;
+  --form-font: 600 14px/16.41px 'source sans pro', sans-serif;
+  --menu-font: bold 12px/15px 'source sans pro', sans-serif;
+  --white: white;
+  --primary: #ff6666;
+  --secondary: #071527;
+  --gray: #969696;
+  --image-small-gradiant: radial-gradient(82.91% 82.91% at 34.95% -2.99%, rgba(41, 48, 61, 0.0001) 0%, #071629 100%);
+  --image-large-gradiant: radial-gradient(100% 100% at 50% 0%, rgba(41, 48, 61, 0.0001) 0%, #071629 100%);
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: var(--body1);
+  color: var(--secondary);
+  margin: 0;
+}
+
 @font-face {
-  font-family: Spin-Cycle-OT;
+  font-family: "Spin-Cycle-OT";
   src: url(fonts/spincycle_ot.otf);
 }
 /* Holberton Icons
@@ -12,11 +43,11 @@
   font-style: normal;
   font-display: block;
 }
-[class^="holberton_school-icon-"],
+[class^=holberton_school-icon-],
 [class*=" holberton_school-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "holberton_school-icon" !important;
-  speak-as: none;
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -27,778 +58,400 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon {
+  font-size: 7rem;
+  color: var(--primary);
+}
+
 .holberton_school-icon-ic_facebook:before {
-  content: "\e908";
+  content: "";
 }
-
 .holberton_school-icon-ic_hearing:before {
-  content: "\e909";
+  content: "";
 }
-
 .holberton_school-icon-ic_instagram:before {
-  content: "\e90a";
+  content: "";
 }
-
 .holberton_school-icon-ic_music:before {
-  content: "\e90d";
+  content: "";
 }
-
 .holberton_school-icon-ic_sound:before {
-  content: "\e90e";
+  content: "";
 }
-
 .holberton_school-icon-ic_twitter:before {
-  content: "\e90f";
+  content: "";
 }
-
 .holberton_school-icon-ic_video:before {
-  content: "\e910";
+  content: "";
 }
 
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-/* Document
-   ========================================================================== */
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+/* Wrapper */
+.wrapper {
+  max-inline-size: 1000px;
+  inline-size: 335px;
+  margin: 0 auto;
 }
 
-/* Sections
-   ========================================================================== */
-/**
- * Remove the margin in all browsers.
- */
-body {
-  margin: 0;
+/* menu component 
+   =========================*/
+.menu {
+  min-block-size: 92px;
+  margin-block-end: 266px;
 }
-
-/**
- * Render the `main` element consistently in IE.
- */
-main {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/* Grouping content
-   ========================================================================== */
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-/* Text-level semantics
-   ========================================================================== */
-/**
- * Remove the gray background on active links in IE 10.
- */
-a {
-  background-color: transparent;
-}
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted;
-}
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-b,
-strong {
-  font-weight: bolder;
-}
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-/**
- * Add the correct font size in all browsers.
- */
-small {
-  font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove the border on images inside links in IE 10.
- */
-img {
-  border-style: none;
-}
-
-/* Forms
-   ========================================================================== */
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-button,
-input {
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-button,
-select {
-  text-transform: none;
-}
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-  -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
- * Correct the padding in Firefox.
- */
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-progress {
-  vertical-align: baseline;
-}
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-textarea {
-  overflow: auto;
-}
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-
-/* Interactive
-   ========================================================================== */
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-details {
-  display: block;
-}
-
-/*
- * Add the correct display in all browsers.
- */
-summary {
-  display: list-item;
-}
-
-/* Misc
-   ========================================================================== */
-/**
- * Add the correct display in IE 10+.
- */
-template {
+.menu__list {
   display: none;
-}
-
-/**
- * Add the correct display in IE 10.
- */
-[hidden] {
-  display: none;
-}
-
-/*# sourceMappingURL=normalize.min.css.map */
-/* Variables
-   ========================================= */
-:root {
-  --color-primary: #ff6565;
-  --color-secondary: #071629;
-  --color-white: #ffffff;
-  --text-color: var(--color-secondary);
-  --font-family-base: "Source Sans Pro", sans-serif;
-  --font-family-logo: "Spin-Cycle-OT", sans-serif;
-  --font-weight-regular: 400;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-}
-
-/* General styles
-   ========================================= */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
-}
-
-ul,
-ol {
   list-style: none;
+  inline-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+.menu__item {
+  inline-size: 73px;
+  margin-inline: auto;
+  margin-block: 2rem;
+}
+.menu__item a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font: var(--menu-font);
+}
+.menu__item a:hover {
+  color: var(--primary);
+}
+.menu__container {
+  padding-block-start: 29px;
+}
+.menu__container:first-child {
+  text-align-last: start;
+}
+.menu__container input {
+  visibility: hidden;
+  position: absolute;
+}
+.menu__container input:checked + .menu__icon .menu__bar {
+  background-color: unset;
+}
+.menu__container input:checked + .menu__icon .menu__bar::after {
+  transform: rotate(-45deg);
+  inset-block-start: 0;
+  inline-size: 20px;
+}
+.menu__container input:checked + .menu__icon .menu__bar::before {
+  transform: rotate(45deg);
+  inset-block-end: 0;
+}
+.menu__container input:checked ~ .menu__list {
+  display: block;
+}
+.menu__icon {
+  inline-size: 90px;
+  block-size: 32px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: start;
+}
+.menu__bar {
+  inline-size: 13px;
+  position: relative;
+}
+.menu__bar, .menu__bar::after, .menu__bar::before {
+  background-color: var(--white);
+  block-size: 2px;
+  display: inline-block;
+  border-radius: 2px;
+}
+.menu__bar::after, .menu__bar::before {
+  content: "";
+  position: absolute;
+  transform: rotate(0);
+  transition: transform 0.2s ease-out;
+  inset-inline-start: 0;
+}
+.menu__bar::after {
+  inline-size: 18px;
+  inset-block-start: 4px;
+}
+.menu__bar::before {
+  inline-size: 20px;
+  inset-block-end: 4px;
 }
 
-h1,
-p {
+/* hero component
+   =========================*/
+.hero {
+  background-image: var(--image-small-gradiant), url("./images/headphones_hero_1.jpg");
+  background-size: 1611.54px 1074px;
+  background-position: -425.27px -99px;
+  background-repeat: no-repeat;
+  max-block-size: 870px;
+  min-block-size: 800px;
+  padding-block-end: 106px;
+  color: var(--white);
   text-align: center;
 }
-
-p {
-  line-height: 1.625rem;
+.hero__title {
+  font: var(--headline1);
+  margin-block: 0;
+}
+.hero__tagline {
+  font: var(--headline4);
+  inline-size: 279px;
+  margin-inline: auto;
+  margin-block-start: 5px;
+}
+.hero__description {
+  margin-block-start: 65px;
 }
 
-a {
-  text-decoration: none;
-}
-a, a:link {
-  color: var(--color-white);
-}
-
-label {
-  display: inline-block;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1000px;
-  width: 89%;
-}
-
+/* button component
+   =========================*/
 .btn {
   border: none;
-  border-radius: 1.375rem;
-  display: block;
-  font-weight: var(--font-weight-bold);
-  height: 2.75rem;
-  margin: 0 auto;
-  width: 10.125rem;
-}
-.btn-primary {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-}
-.btn-filter {
-  filter: drop-shadow(0px 2px 20px rgba(0, 0, 0, 0.5));
+  border-radius: 22px;
+  font: var(--button);
+  color: var(--white);
+  block-size: 44px;
+  inline-size: 162px;
+  text-transform: uppercase;
 }
 .btn:hover, .btn:active {
   opacity: 0.9;
 }
-
-.title {
-  font-size: 2rem;
+.btn--primary {
+  background-color: var(--primary);
+}
+.btn--shadow {
+  filter: drop-shadow(0px 2px 20px rgba(0, 0, 0, 0.5));
 }
 
-/* Hero section
-   ========================================= */
-.hero {
-  background-image: url(images/headphones_hero_1.jpg);
-  background-repeat: no-repeat;
-  background-position-x: 35%;
-  background-size: cover;
-  padding-bottom: 1.5rem;
+/* Services (what we do)
+   =========================*/
+.service {
+  margin-block-end: 96px;
+  max-inline-size: 207px;
+  margin-inline: auto;
 }
-.hero p,
-.hero h1 {
-  color: var(--color-white);
+.service__title {
+  font: var(--headline3);
 }
-.hero p:nth-of-type(1) {
-  font-weight: var(--font-weight-bold);
+.service__description {
+  font: var(--body2);
 }
-.hero p:nth-of-type(2) {
-  margin-top: 3.75rem;
-}
-
-/* Hero section - Header
-   ========================================= */
-.header, .menu {
-  width: 100%;
-}
-
-.logo {
-  align-items: center;
-  display: flex;
-  width: 15.4375rem;
-}
-
-.logo-img {
-  content: url(images/favicon.png);
-}
-
-.logo-title {
-  margin-left: 0.875rem;
-  padding-top: .4rem;
-}
-.logo-title a {
-  font-family: var(--font-family-logo);
-  font-size: 1.125rem;
-  font-weight: var(--font-weight-regular);
-}
-
-/* Hero section - Header - Menu
-   ========================================= */
-.menu {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1.8125rem 0;
-}
-
-.menu-open {
-  display: none;
-}
-
-.menu-open-button {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  height: 0.875rem;
-  justify-content: space-between;
-  width: 1.25rem;
-}
-
-.menu-line {
-  background-color: var(--color-white);
-  border-radius: 2px;
-  height: 2px;
-}
-
-.line-1 {
-  width: 1.25rem;
-}
-
-.line-2 {
-  visibility: visible;
-  width: 0.8125rem;
-}
-
-.line-3 {
-  width: 1.125rem;
-}
-
-.line-1,
-.line-3 {
-  transform: rotate(0);
-  transition: transform 0.2s ease-out;
-}
-
-.menu-list {
-  padding: 0;
-  text-align: center;
-  visibility: hidden;
-  width: 100%;
-}
-
-.menu-item {
-  font-weight: var(--font-weight-semi-bold);
-}
-
-.menu-link:hover, .menu-link:active {
-  color: var(--color-primary);
-}
-
-/* Hero section - Header - Animation of menu
-   =========================================*/
-.menu-open:checked + .menu-open-button .line-1 {
-  transform: rotate(45deg);
-}
-.menu-open:checked + .menu-open-button .line-2 {
-  visibility: hidden;
-}
-.menu-open:checked + .menu-open-button .line-3 {
-  transform: rotate(-44deg);
-  width: 1.25rem;
-}
-.menu-open:checked + .menu-open-button .line-1,
-.menu-open:checked + .menu-open-button .line-3 {
-  transform-origin: 1px;
-}
-.menu-open:checked ~ .menu-list {
-  visibility: visible;
-}
-.menu-open:checked ~ .menu-list .menu-item {
-  padding: 1rem;
-}
-
-/* What we do section
-   ========================================= */
-.what-we-do {
-  color: var(--color-secondary);
-  text-align: center;
-}
-.what-we-do .title {
-  padding-top: 5rem;
-}
-
-.features {
-  align-content: space-between;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 5rem 0.5rem 4rem;
-}
-
-.feature-item {
-  margin: 0 auto;
-  width: 12.9375rem;
-}
-.feature-item:hover {
+.service:hover {
   transform: scale(1.3);
 }
-
-.icon {
-  color: var(--color-primary);
-  font-size: 7rem;
-}
-
-/* Our results section
-  ========================================== */
-.our-results {
-  background-image: url(images/headphones_hero_2.jpg);
-  background-position: center 0;
-  background-repeat: no-repeat;
-  background-color: var(--color-secondary);
-  color: var(--color-white);
+.services {
+  min-block-size: 694px;
+  max-block-size: 1638px;
+  max-inline-size: 100%;
   text-align: center;
 }
-.our-results .title {
-  padding-top: 12rem;
+.services__container {
+  margin-block: 110px;
 }
-.our-results .features .feature-item {
-  background-image: url(images/pentagone.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  height: 11.875rem;
-  justify-content: center;
-  padding-bottom: 2rem;
-  width: 11.875rem;
+.services__title {
+  font: var(--headline2);
+  margin-block-start: 110px;
+  margin-block-end: 40px;
 }
-.our-results .feature-item:hover {
+.services__description {
+  max-inline-size: 637px;
+  margin-inline: auto;
+}
+
+/* Results components
+   =========================*/
+.result {
+  block-size: 190px;
+  inline-size: 190px;
+  margin-block-start: 42px;
+  margin-inline: auto;
+}
+.result__pentagon {
+  background-color: var(--primary);
+  block-size: 110px;
+  inline-size: 100%;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  padding-block-start: 70px;
+}
+.result__pentagon em {
+  font-size: 2.875rem;
+  font-weight: 600;
+  font-style: unset;
+}
+.result__pentagon:hover {
   transform: rotate3d(1, 30, 1, 45deg);
 }
-
-.percent {
-  font-size: 2.875rem;
-  font-weight: var(--font-weight-bold);
-  font-style: unset;
-  margin-top: 3rem;
-}
-
-/* Contact us section
-   ========================================= */
-.contact-us {
-  color: var(--color-secondary);
-}
-
-.container-contact {
-  margin: 7.5rem auto;
-  width: 90%;
-}
-.container-contact .title {
+.results {
+  background-color: var(--secondary);
+  background-image: url("./images/headphones_hero_2.jpg");
+  background-repeat: no-repeat;
+  background-position: center -13.35%;
+  max-inline-size: 100%;
+  min-block-size: 650px;
   text-align: center;
+  color: var(--white);
+  padding-block-end: 69px;
+  padding-block-start: 125px;
+}
+.results__title {
+  font: var(--headline2);
+  margin-block-end: 46px;
+}
+.results__description {
+  max-inline-size: 637px;
+  margin-inline-end: 77px;
+  margin-inline: auto;
 }
 
-/* Contact us - Form
-   ========================================= */
-.form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4rem;
+/* contact form
+=========================*/
+.contact {
+  block-size: 373px;
+  padding-block-start: 110px;
+  padding-block-end: 130px;
 }
-.form-label {
-  font-weight: var(--font-weight-semi-bold);
-  font-size: 1.25rem;
-  transform: translate(0, -55px) scale(1);
-  transition: transform .5s ease-in-out;
+.contact__title {
+  font: var(--headline2);
 }
-.form-input {
+.contact__form {
+  text-align: center;
+  block-size: 373px;
+  inline-size: 335px;
+  margin-inline: auto;
+}
+.contact__label {
+  position: relative;
+}
+.contact__label span {
+  display: block;
+  font: var(--form-font);
+  text-align: start;
+  transform: translateY(-72px) scale(1);
+  transition: transform 0.2s ease-out;
+}
+.contact__label input {
   border: none;
-  border-bottom: 1px solid #ACACAC;
-  margin-bottom: 1.5rem;
+  background-color: unset;
+  border-bottom: 1px solid var(--gray);
+  inline-size: 100%;
+  margin-block-end: 45px;
 }
-.form .btn {
-  margin-top: 1rem;
-}
-
-/* Contact us - Form - Animation
-   ========================================= */
-.form-input:focus, .form-input:not(:placeholder-shown) {
-  outline-style: none;
-  border-bottom-color: var(--color-secondary);
-}
-.form-input:focus + .form-label, .form-input:not(:placeholder-shown) + .form-label {
-  transform: translate(-32px, -65px) scale(0.8);
+.contact__label input:focus + span {
+  transform: translate(-32px, -80px) scale(0.8);
 }
 
-/* Footer section
-   ========================================= */
+/* Footer
+=========================*/
 .footer {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
-  height: 15.5625rem;
-  width: 100%;
-}
-.footer .container {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-.footer .logo {
+  block-size: 167px;
+  background-color: var(--secondary);
+  padding-block-start: 48px;
+  padding-block-end: 34px;
   text-align: center;
-  width: 100%;
-}
-.footer .logo-img {
-  content: url(images/logo_headphones.png);
-  margin: 0 auto;
-  width: 10.125rem;
 }
 
-.social-icon {
+.social {
+  inline-size: 130px;
+  block-size: 30px;
+  margin-inline: auto;
+  margin-block: 45px;
   display: flex;
   justify-content: space-between;
-  width: 8.125rem;
 }
-.social-icon .icon {
-  color: var(--color-white);
+.social__icon {
+  color: var(--white);
   font-size: 1.875rem;
 }
 
 .copyright {
-  opacity: 0.35;
+  color: var(--white);
+  opacity: 0.3;
 }
 
 /* Media Queries
-   ========================================= */
-@media screen and (min-width: 767px) {
-  .hero {
-    background-position: center 0;
-  }
-  .hero h1 {
-    padding-top: 15rem;
+=========================*/
+@media screen and (min-width: 768px) {
+  .wrapper {
+    inline-size: 633px;
   }
 
-  .menu {
-    flex-wrap: nowrap;
+  .menu__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-start: 29px;
   }
-
-  .menu-open-button {
+  .menu__list {
+    display: inline-flex;
+    justify-content: space-between;
+    inline-size: 255px;
+  }
+  .menu__icon {
     display: none;
   }
 
-  .menu-list {
-    display: inline-flex;
+  .hero {
+    background-image: url("./images/headphones_hero_1.jpg");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: 1400px 933px;
+  }
+  .hero__tagline {
+    margin-block-end: 40px;
+    inline-size: 100%;
+  }
+  .hero__description {
+    inline-size: 637px;
+    margin-inline: auto;
+  }
+
+  .services__container {
+    display: grid;
+    column-gap: 29px;
+    grid-template-columns: repeat(auto-fill, minmax(207px, 1fr));
+  }
+
+  .results {
+    background-color: unset;
+    background-size: cover;
+    padding-block-start: 140px;
+    padding-block-end: 53px;
+  }
+  .results__container {
+    display: grid;
+    column-gap: 36px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+
+  .footer {
+    block-size: 104px;
+    padding-block-start: 110px;
+    padding-block-end: 35px;
+  }
+  .footer__container {
+    inline-size: 100%;
+    display: flex;
     justify-content: space-between;
-    visibility: visible;
-    width: 255px;
+    align-items: center;
+    margin-block-end: 60px;
   }
 
-  .menu-item {
-    display: inline-block;
-  }
-
-  .logo {
-    flex-grow: 1;
-    width: 10.125rem;
-  }
-
-  .features {
-    height: 29.3125rem;
-    width: 29.5rem;
-  }
-
-  .feature-item {
+  .social {
     margin: 0;
-  }
-
-  .container-contact {
-    width: 20.9375rem;
-  }
-
-  .footer .container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .footer .logo {
-    align-self: flex-end;
-    width: 10.125rem;
-  }
-  .footer .logo-img {
-    margin: 0;
-  }
-
-  .social-icon {
-    align-self: flex-end;
-  }
-
-  .copyright {
-    text-align: center;
-    width: 100%;
+    padding: 0;
   }
 }
-@media screen and (min-width: 992px) {
-  .features {
-    height: auto;
-    width: 100%;
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    inline-size: 1000px;
   }
 
-  .our-results {
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center 0;
     background-size: cover;
+    inline-size: 100%;
   }
 }
